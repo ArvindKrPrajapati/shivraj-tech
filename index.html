@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="effect.css">
+  <title>Shivraj Industries</title>
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col">
+        <div class="landscape" style="height: 60vh;">
+          <div class="mountain"></div>
+          <div class="mountain mountain-2"></div>
+          <div class="mountain mountain-3"></div>
+          <div class="sun-container sun-container-1">
+          </div>
+          <div class="sun-container">
+            <div class="sun"></div>
+          </div>
+          <div class="cloud"></div>
+          <div class="cloud cloud-1"></div>
+          <div class="sun-container sun-container-reflection">
+            <div class="sun"></div>
+          </div>
+          <div class="light"></div>
+          <div class="light light-1"></div>
+          <div class="light light-2"></div>
+          <div class="light light-3"></div>
+          <div class="light light-4"></div>
+          <div class="light light-5"></div>
+          <div class="light light-6"></div>
+          <div class="light light-7"></div>
+          <div class="water"></div>
+          <div class="splash"></div>
+          <div class="splash delay-1"></div>
+          <div class="splash delay-2"></div>
+          <div class="splash splash-4 delay-2"></div>
+          <div class="splash splash-4 delay-3"></div>
+          <div class="splash splash-4 delay-4"></div>
+          <div class="splash splash-stone delay-3"></div>
+          <div class="splash splash-stone splash-4"></div>
+          <div class="splash splash-stone splash-5"></div>
+          <div class="lotus lotus-1"></div>
+          <div class="lotus lotus-2"></div>
+          <div class="lotus lotus-3"></div>
+          <div class="front">
+            <div class="stone"></div>
+            <div class="grass"></div>
+            <div class="grass grass-1"></div>
+            <div class="grass grass-2"></div>
+            <div class="reed"></div>
+            <div class="reed reed-1"></div>
+          </div>
+        </div>
+        <section class="top text-center">
+          <div>
+            <div class="text-white display-2">Shivraj Technologies</div>
+            <div class="text">Where we Code Future in a Text Editor</div>
+            <button class="btn btn-secondary mt-3 join-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Join
+              us</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 offset-md-1 p-5">
+        <h4>Our Products</h4>
+        <div class="row p-2">
+          <script>
+            data.map((o) => {
+              document.write(`
+              <div class="col-md-4 col-sm-6 p-2">
+               <div class="card">
+               <img src="${o.image}" class="card-img-top product-image" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">${o.title}</h5>
+                   <p class="card-text">
+                  ${o.description}
+                   </p>
+                   <b>Technology Used</b>
+                   <p class="card-text" style="color:#1c33ff">
+                  ${o.techUsed}
+                   </p>
+                  <a href="${o.link}"
+                    class="btn btn-primary btn-sm">${o.linkText}</a>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Price Rs
+                    ${o.price}</button>
+                </div>
+            </div>
+          </div>
+              `)
+            })
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="container-fluid bg-dark">
+        <div class="container p-4 pt-5">
+          <div class="row">
+            <div class="col">
+              <p class="display-6 text-white" id="title">Contact Me</p>
+            </div>
+          </div>
+
+          <div class="row p-1">
+            <div class="col-md-5 m-auto order-md-1" id="contact">
+              <form #contact="ngForm" (submit)="sendMail(contact)">
+                <div class="mb-3" *ngIf="required">
+                  <div class="alert alert-danger p-2" style="font-size: 13px;">All fields are required</div>
+                </div>
+                <div class="mb-3" *ngIf="sending!==''">
+                  <div class="text-white">Your Email {{sending}}</div>
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label text-white">Full Name</label>
+                  <input type="text" name="name" ngModel class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
+                  <input type="email" name="email" ngModel class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                  <label for="message" class="form-label text-white">Message</label>
+                  <textarea class="form-control" name="text" ngModel id="message"></textarea>
+                </div>
+
+                <button type="submit" [disabled]="isDisabled" class="btn btn-primary mb-4">Send Email</button>
+              </form>
+            </div>
+
+            <div class="col-md-6 d-md-flex justify-content-center align-items-center">
+              <div>
+                <h2 class="text-white">CEO & Founder</h2>
+                <p class="display-6 text-white-50">Arvind Kumar</p>
+                <p class="text-secondary">Ballia , Uttar Pradesh India</p>
+                <p class="text-secondary">My Email : arvindsoft@gmail.com</p>
+                <p class="text-secondary">Moble / whatsapp : +91 8789096437</p>
+                <!-- <app-social></app-social> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          If you are interested and buy or join us to work with us please contact us through whatsapp
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a target="_blank"
+            href="//api.whatsapp.com/send?phone=918789096437&text=hello i am interested in your project. i want to buy one"
+            class="btn btn-success">Whatsapp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
